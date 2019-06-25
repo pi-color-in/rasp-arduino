@@ -11,10 +11,10 @@ const=0.4155
 def ml_to_ms(qt_ml):
     # tempo em milisegundos para ligar a bomba
     time=qt_ml*const*1000
-    return time
+    return int(time)
 
 def send_color(base,cyan,magenta,yellow,black):
-    data = str(base)+','+str(cyan)+','+str(magenta)+','+str(yellow)+','+str(black)+'\n'
+    data = "{},{},{},{},{}\n".format(str(base),str(cyan),str(magenta),str(yellow),str(black))
     print(data)
     ser.write(data)
     output = ''
@@ -24,11 +24,11 @@ def send_color(base,cyan,magenta,yellow,black):
         ser.close()
 
 def main():
-    cyan=100
-    magenta=50
-    yellow=50
-    black=40
-    base=150
+    cyan=10
+    magenta=10
+    yellow=10
+    black=10
+    base=15
     send_color(ml_to_ms(base),ml_to_ms(cyan),ml_to_ms(magenta),ml_to_ms(yellow),ml_to_ms(black))
 
 if __name__ == '__main__':
