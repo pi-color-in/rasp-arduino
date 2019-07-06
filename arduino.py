@@ -24,7 +24,7 @@ def ml_to_ms(qt_ml):
 
 def send_color(base,cyan,magenta,yellow,black):
     #import ipdb; ipdb.set_trace()
-    ser = serial.Serial(port='/dev/ttyACM1', baudrate=9600)
+    ser = serial.Serial(port='/dev/ttyACM0', baudrate=9600)
     time.sleep(1)
     data = "{},{},{},{},{}\n".format(str(base),str(cyan),str(magenta),str(yellow),str(black))
     # data = "2000,2000,2000,2000,2000\n"
